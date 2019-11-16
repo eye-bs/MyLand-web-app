@@ -1,0 +1,118 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.mySlides {
+  display: none;
+  width: 80%;
+  height: 500px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slide-contain {
+  background: linear-gradient(110deg, #69b845 60%, #3fb149 60%);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container-detail {
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+
+td ,th{
+    padding-left: 20px;
+    padding-top: 20px;
+    
+}
+th{
+    vertical-align: top;
+    color: green;
+}
+q{
+    font-family: "Bai Jamjuree", sans-serif;
+}
+
+#map {
+    height: 0px;
+    width: 90%;
+    margin: auto;
+  
+}
+
+button.btn{
+    margin-left: auto;
+    margin-right: auto;
+    padding:20px;
+    width: 80%;
+    background-color:#00A44E;
+    border:1px solid #00A44E;
+    font-weight: bold;
+    box-shadow: 1px 1px 10px 1px rgba(50,50,50,.4);
+}
+
+button.btn:hover{
+    background-color:#00925D;
+    border:1px solid #00A44E;
+
+}
+
+h1.show-map-div { 
+    margin-top: 30px;
+    display: flex; 
+    flex-direction: row; 
+} 
+  
+h1.show-map-div:before, 
+h1.show-map-div:after { 
+    content: ""; 
+    flex: 1 1; 
+    border-bottom: 1px solid #000; 
+    margin: auto; 
+} 
+
+#showMapBt{
+    border: 1px solid #000; 
+    border-radius:5px;
+}
+#showMapBt h5{
+    font-family: "Bai Jamjuree", sans-serif;
+}
+
+#editLandDetail{
+    background-color: #6A5893;
+    border:1px solid #6A5893;
+}
+#deleteLand{
+    background-color: #E8542C;
+    border:1px solid #E8542C;
+}
+
+#editLandDetail , #deleteLand{
+    margin: 10px;
+    padding:20px;
+    font-weight: bold;
+    box-shadow: 1px 1px 10px 1px rgba(50,50,50,.4);
+    border-radius: 5px;
+    color: white;
+}
+
+#btForAdmin{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    margin-bottom:20px; 
+
+}
+
+
+
+  
+

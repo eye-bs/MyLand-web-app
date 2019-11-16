@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drawing Tools</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>My Land</title>
+    <link rel="stylesheet" href="style/indexCss.css">
+    <link rel="stylesheet" href="style/detailStyle.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body style="font-family: 'Bai Jamjuree', sans-serif;">
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html">
+                  <h1>MY LAND</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <span class="navbar-text mr-auto"></span>
+                  <div class="navbar-nav">
+                    <a id="loginNev" class="nav-item nav-link active" data-toggle="modal" data-target="#myModal"
+                      style="color:white">เข้าสู่ระบบ <span class="sr-only">(current)</span></a>
+                    <a id="userNev" style="display: none;" class="nav-item nav-link"><img src="images/sun.png"
+                        class="demo-profile-pic"></a>
+                  </div>
+                </div>
+              </nav>
+
+               <!--Modal: Login / Register Form-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+          <!--Content-->
+          <div class="modal-content">
+    
+            <!--Modal cascading tabs-->
+            <div class="modal-c-tabs">
+    
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+                    Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                    Register</a>
+                </li>
+              </ul>
+    
+              <!-- Tab panels -->
+              <div class="tab-content">
+                <!--Panel 7-->
+                <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+    
+                  <!--Body-->
+                  <div class="modal-body mb-1">
+                    <form class="form-horizontal">
+                      <fieldset>
+                        <!-- Sign In Form -->
+                        <!-- Text input-->
+    
+                        <div class="group">
+                          <input id="emailToLogin" class="input" type="email" required
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]"><span class="highlight"></span><span
+                            class="bar"></span>
+                          <label class="label" for="date">อีเมล</label></div>
+    
+    
+                        <!-- Password input-->
+                        <div class="group">
+                          <input id="passwordToLogin" required="" class="input" type="password"><span
+                            class="highlight"></span><span class="bar"></span>
+                          <label class="label" for="date">รหัสผ่าน</label>
+                        </div>
+                        <em>minimum 6 characters</em>
+    
+                        <!-- <div class="forgot-link">
+                                  <br>
+                                  <a href="#forgot" data-toggle="modal" data-target="#forgot-password">ลืม Pasword?</a>
+                                </div> -->
+    
+                        <!-- Button -->
+                        <div class="control-group">
+                          <label class="control-label" for="signin"></label>
+                          <div class="controls">
+                            <button id="loginWithGoogle" name="signin" class="btn btn-primary btn-block">login With
+                              Google</button>
+                          </div>
+                          <div class="controls">
+                            <button id="signin" name="signin" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </div>
+                <!--/.Panel 7-->
+                <!--Panel 8-->
+                <div class="tab-pane fade" id="panel8" role="tabpanel">
+    
+                  <!--Body-->
+                  <div class="modal-body">
+                    <form class="form-horizontal">
+                      <fieldset>
+                        <!-- Sign Up Form -->
+                        <!-- Text input-->
+                        <div class="group">
+                          <input id="firstNameToSignUp" required="" class="input" type="text"><span
+                            class="highlight"></span><span class="bar"></span>
+                          <label class="label" for="date">ชื่อ</label></div>
+    
+                        <!-- Text input-->
+                        <div class="group">
+                          <input id="lastNameToSignUp" required="" class="input" type="text"><span
+                            class="highlight"></span><span class="bar"></span>
+                          <label class="label" for="date">นามสกุล</label></div>
+    
+                        <!-- Password input-->
+                        <div class="group">
+                          <input id="emailToSignUp" class="input" type="email" required
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]"><span class="highlight"></span><span
+                            class="bar"></span>
+                          <label class="label" for="date">อีเมล</label></div>
+    
+                        <!-- Text input-->
+                        <div class="group">
+                          <input id="passwordToSignUp" required="" class="input" type="password"><span
+                            class="highlight"></span><span class="bar"></span>
+                          <label class="label" for="date">รหัสผ่าน</label></div>
+                        <em>minimum 6 characters</em>
+    
+                        <div class="group2">
+                          <input id="phoneToSignUp" class="input" type="tel" required pattern="[0-9]{10}"><span
+                            class="highlight"></span><span class="bar"></span>
+                          <label class="label" for="date">เบอร์โทรศัพท์</label></div>
+    
+                        <!-- Button -->
+                        <div class="control-group">
+                          <label class="control-label" for="confirmsignup"></label>
+                          <div class="controls">
+                            <button id="confirmsignup" name="confirmsignup"
+                              class="btn btn-primary btn-block">ลงทะเบียน</button>
+                          </div>
+                        </div>
+                      </fieldset>
+                  </div>
+                  <!--Footer-->
+                </div>
+                <!--/.Panel 8-->
+              </div>
+            </div>
+          </div>
+          <!--/.Content-->
+        </div>
+      </div>
+
+              <div class="slide-contain">
+                    <div id="slideLayout" class="w3-content w3-display-container">
+                      <button class="w3-button w3-white w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                      <button class="w3-button w3-white w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                    </div>
+                  </div>
+                
+                  <div class="container-detail">
+                    <h5>
+                      <center><q id="detail"></q></center>
+                    </h5>
+                    <table>
+                      <tr>
+                        <th>ขนาดที่ดิน</th>
+                        <td id="area"></td>
+                      </tr>
+                      <tr>
+                        <th>ราคา</th>
+                        <td id="price"></td>
+                      </tr>
+                      <tr>
+                        <th>ที่ตั้ง</th>
+                        <td id="address"></td>
+                      </tr>
+                    </table>
+                    <hr>
+                    <button class="w3-button w3-white">
+                      <h3>&#709;</h3>
+                    </button>
+                
+                    
+                
+                  </div>
+                
+                
+                  <!--/.Carousel Wrapper-->
+                
+                  <button class="btn btn-primary btn-block" id="apiLandDtail">Call API</button>
+                 
+
+    <div id="map"></div>
+    <script src="js/DrawingGoogleMap.js"></script>
+    <script src="js/detaliFunctions.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGwWZK_bbs0Q4fdGToSaVaymJbKz9bWWg&libraries=drawing,places&callback=initMap" async defer></script>
+
+</body>
+
+</html>
