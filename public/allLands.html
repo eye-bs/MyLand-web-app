@@ -30,29 +30,26 @@
     </script>
 </head>
 
-<body style="font-family: 'Bai Jamjuree', sans-serif;">
-    <!--! nav !-->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">
-            <h1>MY LAND</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <span class="navbar-text mr-auto"></span>
-            <div class="navbar-nav">
-                <a id="loginNev" class="nav-item nav-link active" data-toggle="modal" data-target="#myModal"
-                    style="color:white">เข้าสู่ระบบ <span class="sr-only">(current)</span></a>
-                <a id="userNev" style="display: none;" class="nav-item nav-link"><img src="images/sun.png"
-                        class="demo-profile-pic"></a>
-            </div>
-        </div>
-    </nav>
-    <!--! nav !-->
+<body style="font-family: 'Bai Jamjuree', sans-serif;background-color:#F8F9FA;">
+     <!--!nav-->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#3FB6AD">
+    <a class="navbar-brand" href="index.html">
+      <h1>MY LAND</h1>
+    </a>
+    
+      <span class="navbar-text mr-auto"></span>
+      <div class="navbar-nav">
+        <a id="loginNev" class="nav-item nav-link active" data-toggle="modal" data-target="#myModal"
+          style="color:white; font-weight:bold; text-align: right;">เข้าสู่ระบบ <span
+            class="sr-only">(current)</span></a>
+        <a id="userNev" style="display: none; text-align: right;" class="nav-item nav-link" href="profile.html"><img
+            src="images/sun.png" class="demo-profile-pic"></a>
+      </div>
+  </nav>
+   <!--!nav-->
 
     <!--! modal !-->
+
     <!--Modal: Login / Register Form-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog cascading-modal" role="document">
@@ -104,17 +101,16 @@
                                         <em>minimum 6 characters</em>
 
                                         <!-- <div class="forgot-link">
-                                          <br>
-                                          <a href="#forgot" data-toggle="modal" data-target="#forgot-password">ลืม Pasword?</a>
-                                        </div> -->
+                          <br>
+                          <a href="#forgot" data-toggle="modal" data-target="#forgot-password">ลืม Pasword?</a>
+                        </div> -->
 
                                         <!-- Button -->
                                         <div class="control-group">
                                             <label class="control-label" for="signin"></label>
                                             <div class="controls">
                                                 <button id="loginWithGoogle" name="signin"
-                                                    class="btn btn-primary btn-block">login With
-                                                    Google</button>
+                                                    class="btn btn-danger btn-block">เข้าสู่ระบบด้วย Google</button>
                                             </div>
                                             <div class="controls">
                                                 <button id="signin" name="signin"
@@ -171,7 +167,8 @@
                                             <label class="control-label" for="confirmsignup"></label>
                                             <div class="controls">
                                                 <button id="confirmsignup" name="confirmsignup"
-                                                    class="btn btn-primary btn-block">ลงทะเบียน</button>
+                                                    class="btn btn-warning btn-block"
+                                                    style="color:white">ลงทะเบียน</button>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -186,51 +183,84 @@
         </div>
     </div>
     <!--! modal !-->
+    <!--!sort bar-->
+    <div class="container-sort">
+        <table style="width:100%">
+            <tr style="width:100%">
+                <td style="width:20%">
+                    เรียงตาม
+                </td>
+                <td id="sortBy1" class="active"><a>ล่าสุด</a></td>
+                <td id="sortBy2"><a>ขนาดที่ดิน</a></td>
+            </tr>
+        </table>
+    </div>
+    <!--!/sort bar-->
 
-    <!--!land card!-->
+    <!--!land filter!-->
     <div class="contain-filter">
 
-        <h4>ค้นหาแบบละเอียด</h4>
-        <div class="row">
-            <div class="col-sm-4">
-                <label for="province">จังหวัด</label>
-                <select id="province" name="province">
-                    <option value="ทั้งหมด">ทั้งหมด</option>
-                </select>
+        <table class="filter-row" width="100%">
+            <tr>
+                <td class="filter-row-left">
+                    <p>ค้นหาแบบละเอียด</p>
+                </td>
+                <td class="filter-row-center" width="100%">
+                    <hr>
+                </td>
+                <td class="filter-row-right">&#128772;</td>
+            </tr>
+        </table>
+
+        <div class="filter-detail">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="province">จังหวัด</label>
+                    <select id="province" name="province">
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="district">อำเภอ</label>
+                    <select class="select-block-clicked" id="district" name="district">
+                        <option value="ทั้งหมด">ทั้งหมด</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="locality">ตำบล</label>
+                    <select class="select-block-clicked" id="locality" name="locality">
+                        <option value="ทั้งหมด">ทั้งหมด</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <label for="district">อำเภอ</label>
-                <select class="select-block-clicked" id="district" name="district">
-                    <option value="ทั้งหมด">ทั้งหมด</option>
-                </select>
+
+
+            <!--!slider area land!-->
+            <p style="margin-top:20px">ขนาดที่ดิน</p>
+            <div style="margin: 4em" class="regular-slider">
             </div>
-            <div class="col-sm-4">
-                <label for="locality">ตำบล</label>
-                <select class="select-block-clicked" id="locality" name="locality">
-                    <option value="ทั้งหมด">ทั้งหมด</option>
-                </select>
-            </div>
+            <!--!/slider area land!-->
         </div>
-
-
-        <!--!slider area land!-->
-        <p style="margin-top:20px">ขนาดที่ดิน</p>
-        <div style="margin: 4em" class="regular-slider"></div>
-
-
-        <!--!/slider area land!-->
-
     </div>
-    </div>
+    <!--!land filter!-->
+
     <!--!land card!-->
-    <div class="landRows">
-
-    </div>
+    <div class="landRows"></div>
     <!--!/land card!-->
+
+
     <!--! Script !-->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/6.4.1/firebase-app.js"></script>
+    <script defer src="/__/firebase/6.4.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.4.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+       <script src="loginFirebase.js"></script>
+
     <script src="js/allLandsFunctions.js"></script>
-    <script src="loginFirebase.js"></script>
     <script src="js/landBlock.js"></script>
+    
 
     <!--!/Script !-->
 

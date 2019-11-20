@@ -8,19 +8,19 @@ body {
 .mySlides {
   display: none;
   width: 80%;
-  height: 500px;
+  height: auto;
   object-fit: contain;
   margin-left: auto;
   margin-right: auto;
 }
 .slide-contain {
-  background: linear-gradient(110deg, #69b845 60%, #3fb149 60%);
+  /* background: linear-gradient(110deg, #3FB8AF 60%, rgba(63, 184, 176, 0.74) 60%); */
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .container-detail {
-  margin-top: 60px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -45,6 +45,11 @@ q{
     width: 90%;
     margin: auto;
   
+}
+
+#fevBt{
+    background-color: #076898;
+    display: none;
 }
 
 button.btn{
@@ -105,14 +110,20 @@ h1.show-map-div:after {
 }
 
 #btForAdmin{
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 30px;
+    margin-right: 50px;
     text-align: center;
     margin-bottom:20px; 
 
 }
 
+button.w3-display-left,button.w3-display-right {
+     background: linear-gradient(110deg, rgba(63, 184, 176, 0.74) 60%, #3FB8AF 60%);
+}
 
+hr{
+    background-color: #CBCBCB;
+}
 
   
 

@@ -20,30 +20,37 @@ body {
   margin: 0;
 }
 
-a.navbar-brand h1{
+a.navbar-brand h1 {
   color: white;
 }
 
-.navbar{
-  background-color: #69B845;
-  box-shadow: 1px 1px 10px 1px rgba(50,50,50,.4);
+.navbar {
+  background-color: #3FB6AD;
+  box-shadow: 1px 1px 10px 1px rgba(50, 50, 50, .4);
 
+}
+.navbar-nav{
+  background-color:#3FB6AD;
 }
 .mdl-grid {
   max-width: 1024px;
   margin: auto;
 }
+
 .mdl-card {
   min-height: 0;
   padding-bottom: 5px;
 }
+
 .mdl-layout__header-row {
   padding: 0;
 }
+
 #demo-signed-out-card,
 #demo-signed-in-card {
   display: none;
 }
+
 .demo-profile-pic {
   height: 60px;
   width: 60px;
@@ -55,8 +62,13 @@ a.navbar-brand h1{
 #demo-uid-container {
   font-weight: bold;
 }
+
 #demo-delete-button {
   margin-left: 20px;
+}
+
+h4.modal-title{
+  font-family: "Bai Jamjuree", sans-serif;
 }
 
 nav,
@@ -70,7 +82,7 @@ header.masthead {
   padding-bottom: calc(25rem - 72px);
   background: url("../images/homeHeader.jpg");
   font-family: "Bai Jamjuree", sans-serif;
-  margin-top:-100px ;
+  margin-top: -250px;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -90,9 +102,11 @@ header.masthead h1 {
     padding-top: 72px;
     padding-bottom: 0;
   }
+
   header.masthead p {
     font-size: 1.15rem;
   }
+
   header.masthead h1 {
     font-size: 3rem;
   }
@@ -112,12 +126,13 @@ div.container h2 {
 
 .tab-style {
   font-size: 20px;
-  list-style:none;
+  list-style: none;
   width: 50%;
   background-color: #f2f2f2;
   text-align: center;
 }
-.nav-tabs > li > a {
+
+.nav-tabs>li>a {
   margin-right: 0px;
   color: grey;
 }
@@ -133,9 +148,9 @@ div.container h2 {
   font-size: 18px;
 }
 
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:focus,
-.nav-tabs > li.active > a:hover {
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
   background-color: #e5ecf4;
   color: #4a89dc;
 }
@@ -183,7 +198,8 @@ div.container h2 {
   float: left;
   width: 33.33%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 300px;
+  /* Should be removed. Only for demonstration */
 }
 
 .row:after {
@@ -192,7 +208,7 @@ div.container h2 {
   clear: both;
 }
 
-.landBlock{
+.landBlock {
   width: 100%;
   height: 500px;
   background-color: lightcyan;
@@ -213,8 +229,8 @@ label.label {
 
 /* active */
 
-.input:focus ~ .label,
-.input.used ~ .label {
+.input:focus~.label,
+.input.used~.label {
   top: -20px;
   transform: scale(0.75);
   left: -15px;
@@ -251,8 +267,8 @@ label.label {
 
 /* active */
 
-.input:focus ~ .bar:before,
-.input:focus ~ .bar:after {
+.input:focus~.bar:before,
+.input:focus~.bar:after {
   width: 50%;
 }
 
@@ -270,7 +286,7 @@ label.label {
 
 /* active */
 
-.input:focus ~ .highlight {
+.input:focus~.highlight {
   animation: inputHighlighter 0.3s ease;
 }
 
@@ -301,28 +317,42 @@ label.label {
   }
 }
 
-/* .modal-body{background-image:url('http://res.cloudinary.com/rinma/image/upload/v1500489833/Airplane-flying-desktop-pictureproba2_rlcced.jpg');
-background-size:cover;
-z-inedx:4;} */
-
 em {
   display: none;
 }
 
-.card-body h3{
-  font-family: 'Bai Jamjuree', sans-serif;
+#panel7,
+#panel8 {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
 }
-.card-body p{
+
+
+
+.card-body h5 {
+  font-family: 'Bai Jamjuree', sans-serif;
+
+}
+
+.card-body p {
   font-family: 'Bai Jamjuree', sans-serif;
   position: absolute;
   right: 0;
   bottom: 0;
   margin-right: 10px;
+  padding-bottom: 5px;
 }
 
-.card-img-top{
+.card-img-top {
   height: 250px;
   object-fit: cover;
+}
+
+.card-shadow {
+  box-shadow: 1px 1px 5px 1px rgba(50, 50, 50, 0.219);
+
 }
 
 .view-all {

@@ -1,0 +1,63 @@
+.container-sort td {
+  text-align: center;
+  border: 2px solid #3FB6AD;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 1px 1px 10px 1px rgba(50, 50, 50, 0.171);
+
+}
+
+td.active {
+  background-color: #3FB6AD;
+  color: white;
+}
+
+
+#addNewLand {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #3FB6AD;
+  box-shadow: 1px 1px 10px 1px rgba(50, 50, 50, .4);
+  border-radius: 5px;
+  color: white;
+  background-color: #3FB6AD;
+  float: right;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+
+#addNewLand:hover {
+  background-color: rgba(63, 182, 172, 0.74);
+}
+
+
+a:link {
+  color: rgb(255, 255, 255);
+}
+
+a:visited {
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  color: rgb(255, 255, 255);
+}
+
+a:active {
+  color: rgb(255, 255, 255);
+}
+.container-con,.container-noncon,#userDetail{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+#userDetail{
+  text-align: center;
+}
+
+h4.modal-title{
+  font-family: "Bai Jamjuree", sans-serif;
+}

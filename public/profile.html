@@ -2,36 +2,36 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <title>My Land</title>
-  <link rel="stylesheet" href="style/indexCss.css">
-  <link rel="stylesheet" href="style/detailStyle.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/indexCss.css" />
+  <link rel="stylesheet" href="style/allLandsStyle.css">
+  <link rel="stylesheet" href="style/adminStyle.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <!--nouislider-->
+  <script src="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.js"></script>
+  <script src="https://unpkg.com/wnumb@1.1.0"></script>
+  <link rel="stylesheet" href="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.css">
+  <!--nouislider-->
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css" />
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-
-
 </head>
 
-<body style="font-family: 'Bai Jamjuree', sans-serif;">
+<body style="font-family: 'Bai Jamjuree', sans-serif;background-color:#F6F6F6;">
   <!--!nav-->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#3FB6AD">
     <a class="navbar-brand" href="index.html">
@@ -48,7 +48,11 @@
   </nav>
   <!--!nav-->
 
+
   <!--! modal !-->
+
+  <!--Modal: Login / Register Form-->
+
   <!--Modal: Login / Register Form-->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog cascading-modal" role="document">
@@ -98,9 +102,9 @@
                     <em>minimum 6 characters</em>
 
                     <!-- <div class="forgot-link">
-                          <br>
-                          <a href="#forgot" data-toggle="modal" data-target="#forgot-password">ลืม Pasword?</a>
-                        </div> -->
+                              <br>
+                              <a href="#forgot" data-toggle="modal" data-target="#forgot-password">ลืม Pasword?</a>
+                            </div> -->
 
                     <!-- Button -->
                     <div class="control-group">
@@ -178,117 +182,98 @@
   </div>
   <!--! modal !-->
 
-  <!--Carousel Wrapper-->
-  <div class="slide-contain">
-    <div id="slideLayout" class="w3-content w3-display-container">
-      <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-      <button class="w3-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+      <!--modal edit-->
+      <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">แก้ไขข้อมูลส่วนตัว</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <i class="fas fa-user prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="form3">ชื่อ</label>
+              <input type="text" id="modal-username" class="form-control validate">
+              
+            </div>
+    
+            <div class="md-form mb-4">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="form2">เบอร์โทรศัพท์</label>
+              <input type="tel" required pattern="[0-9]{10}" id="modal-userphone" class="form-control validate">
+             
+            </div>
+    
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-primary" id="saveEditProfile">บันทึก <i class="fas fa-paper-plane-o ml-1"></i></button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    
+    <!--modal edit-->
 
-  <div class="container-detail">
-    <h3>
-      <center><q id="detail"></q></center>
-    </h3>
-    <hr>
-    <table>
+  
+  <div class="container-sort">
+    <table style="width:100%">
       <tr>
-        <th>ขนาดที่ดิน</th>
-        <td id="area"></td>
+        <th></th>
+        <th> <button id="addNewLand" onclick="location.href='addland.html'" type="button">เพิ่มที่ดินใหม่</button></th>
       </tr>
-      <tr>
-        <th>หน้ากว้าง</th>
-        <td id="wide_face"></td>
-      </tr>
-      <tr>
-        <th>ราคา</th>
-        <td id="price"></td>
-      </tr>
-      <tr>
-        <th>ที่ตั้ง</th>
-        <td id="address"></td>
-      </tr>
-      <tr>
-        <th>รายละเอียด</th>
-        <td id="details"></td>
+      <div id="userDetail">
+        <h3 id="profile-username"></h3>
+        <p id="profile-email"></p>
+        <div>
+          <p id="profile-phone" style="display: inline;"></p>
+          <a style="margin-left:20px;background-color:transparent" href="#" data-toggle="modal" data-target="#modalSubscriptionForm"><img src="images/edit.png" width="20px" height="20px"></a>
+
+        </div>
+
+        <hr>
+      </div>
+
+      <tr style="width:100%">
+        <td id="sortBy1" class="active"><a>ที่บันทึกไว้</a></td>
+        <td id="sortBy2"><a>ฝากขาย</a></td>
       </tr>
     </table>
-
-    <hr>
-    <table>
-      <tr>
-        <th>สนใจติดต่อ</th>
-        <td>
-          <p> 093-3816858</p>
-        </td>
-      </tr>
-      <tr>
-        <th>LINE ID</th>
-        <td>chai6858</td>
-      </tr>
-
-    </table>
-
-<div id="detailForAdmin" style="display: none;">
-  <hr>
-     <table >
-      <tr>
-        <th>สาธารณูปโภคพื้นฐาน</th>
-        <td id="public_utilities"></td>
-      </tr>
-      <tr>
-        <th>เหมาะสำหรับ</th>
-        <td id="land_for"></td>
-      </tr>
-      <tr>
-        <th>ความสูงจากระดับน้ำทะเล</th>
-        <td id="sea_level"></td>
-      </tr>
-      <tr>
-        <th>เงื่อนไขการโอน</th>
-        <td id="transfer_terms"></td>
-      </tr>
-      <tr>
-        <th>สถานะ</th>
-        <td id="approved"></td>
-      </tr>
-    </table>
-</div>
- 
-
-    <h1 class="show-map-div"><button id="showMapBt" class="w3-button w3-white">
-        <h5>ดูในแผนที่</h5>
-      </button></h1>
-  </div>
-
-  <div id="map"></div>
-  <!--/.Carousel Wrapper-->
-
-  <button class="btn btn-primary btn-block" id="apiLandDtail">&#9829; บันทึกไว้ดูภายหลัง</button>
-  <button class="btn btn-primary btn-block" id="fevBt" onclick="location.href='profile.html'">ดูในรายการที่ชื่นชอบ</button>
-  <div id="btForAdmin" style="display: none;">
-    <button class="col-sm-3" id="editLandDetail">&#9998; แก้ไข</button>
-    <button class="col-sm-3" id="deleteLand">&#128465; ลบ</button>
-
   </div>
 
 
+  <div class="landRows"></div>
+
+  <div class="container-con">
+    <p>อนุมัติแล้ว</p>
+    <hr style=" background:black; border-width: 1px;">
+
+
+    <div class="approvedlandRows" style="width:100%">ยังไม่มีที่ดินฝากขาย</div>
+
+  </div>
+  <div class="container-noncon">
+    <p>ยังไม่อนุมัติ
+      <hr style=" background:black; border-width: 1px;">
+
+      <div class="notapprovedlandRows" style="width:100%">ยังไม่มีที่ดินฝากขาย</div>
+
+  </div>
+  <!--! Script !-->
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/6.4.1/firebase-app.js"></script>
   <script defer src="/__/firebase/6.4.1/firebase-auth.js"></script>
   <script defer src="/__/firebase/6.4.1/firebase-database.js"></script>
   <script defer src="/__/firebase/init.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
-  <script src="js/DrawingGoogleMap.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGwWZK_bbs0Q4fdGToSaVaymJbKz9bWWg&libraries=drawing,places,geometry&callback=initMapDetails"
-    async defer></script>
-    <script src="loginFirebase.js"></script>
- 
+  <script src="loginFirebase.js"></script>
+  <script src="js/adminFunction.js"></script>
+  <script src="js/landBlock.js"></script>
 
-
-  <script src="js/detaliFunctions.js"></script>
-
+  <!--!/Script !-->
 </body>
 
 </html>

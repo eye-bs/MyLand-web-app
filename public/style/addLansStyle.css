@@ -1,0 +1,225 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+input[type=text],
+input[type=number],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text]:focus,input[type=number]:focus,textarea:focus,
+select:focus{
+  border: 2px solid #69b845;
+
+}
+
+input[type=submit] ,input[type=button] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover,input[type=button]:hover{
+  background-color: #45a049;
+}
+
+div.container-form {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  font-family: "Bai Jamjuree", sans-serif;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+div.form-upper , .form-lower{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:20px;
+  width: 80%;
+
+}
+
+.container-form form {
+  height: 100%;
+}
+
+.container-form h3{
+  font-family: "Bai Jamjuree", sans-serif;
+  text-align: center;
+}
+table {
+  width: 100%;
+}
+
+td {
+  padding-right: 10px;
+  text-align: center;
+
+}
+
+tr {
+  display: inline-block;
+}
+
+.row img {
+  width: 5vw;
+  height: 5vw;
+}
+
+div.utilities-b,
+div.utilities-e,
+div.utilities-w {
+  margin: 1vw;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 3px solid #4CAF50;
+  border-radius: 10px;
+  text-align: center;
+
+}
+
+
+.active {
+  background-color: #69b845;
+  color: white;
+}
+
+div.utilities:hover:not(.active) {
+  background-color: #E5E5E5;
+}
+
+#map {
+  height: 80%;
+  width: 100%;
+  margin: auto;
+}
+
+.control-ui {
+
+  cursor: pointer;
+  margin-bottom: 22px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.control-map,.clean-map ,.search-bt{
+  border-radius: 3px;
+  background-color: #69B845;
+  border: 2px solid #69B845;
+  color: white;
+  line-height: 38px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+  margin-right: 20px;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+.control-map,.clean-map {
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.363);
+}
+
+.clean-map{
+  background-color: #E5A228;
+  border: 2px solid #E5A228;
+}
+
+/*!for add image component*/
+.preview-images-zone {
+  width: 100%;
+  border: 2px solid #ddd;
+  background-color: white;
+  min-height: 180px;
+  /* display: flex; */
+  padding: 5px 5px 5px 5px;
+  position: relative;
+  overflow:auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Bai Jamjuree", sans-serif;
+  border-radius: 5px;
+
+}
+.preview-images-zone > .preview-image:first-child {
+  height: auto;
+  width: 40%;
+  position: relative;
+  margin-right: 5px;
+}
+.preview-images-zone > .preview-image {
+  height: auto;
+  width: 20%;
+  position: relative;
+  margin-right: 5px;
+  float: left;
+  margin-bottom: 5px;
+}
+.preview-images-zone > .preview-image > .image-zone {
+  width: 100%;
+  height: 100%;
+}
+.preview-images-zone > .preview-image > .image-zone > img {
+  width: 100%;
+  height: 100%;
+}
+.preview-images-zone > .preview-image > .tools-edit-image {
+  position: absolute;
+  z-index: 100;
+  color: #fff;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  display: none;
+}
+.preview-images-zone > .preview-image > .image-cancel {
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+  display: none;
+  z-index: 100;
+}
+.preview-image:hover > .image-zone {
+  cursor: move;
+  opacity: .5;
+}
+.preview-image:hover > .tools-edit-image,
+.preview-image:hover > .image-cancel {
+  display: block;
+}
+.ui-sortable-helper {
+  width: 90px !important;
+  height: 90px !important;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:20px;
+  width: 80%;
+}
+/*!for add image component*/
