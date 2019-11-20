@@ -31,22 +31,23 @@
 </head>
 
 <body style="font-family: 'Bai Jamjuree', sans-serif;background-color:#F8F9FA;">
-     <!--!nav-->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#3FB6AD">
-    <a class="navbar-brand" href="index.html">
-      <h1>MY LAND</h1>
-    </a>
-    
-      <span class="navbar-text mr-auto"></span>
-      <div class="navbar-nav">
-        <a id="loginNev" class="nav-item nav-link active" data-toggle="modal" data-target="#myModal"
-          style="color:white; font-weight:bold; text-align: right;">เข้าสู่ระบบ <span
-            class="sr-only">(current)</span></a>
-        <a id="userNev" style="display: none; text-align: right;" class="nav-item nav-link" href="profile.html"><img
-            src="images/sun.png" class="demo-profile-pic"></a>
-      </div>
-  </nav>
-   <!--!nav-->
+    <!--!nav-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#3FB6AD">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo-myland.png" style="height: 60px;">
+
+        </a>
+
+        <span class="navbar-text mr-auto"></span>
+        <div class="navbar-nav">
+            <a id="loginNev" class="nav-item nav-link active" data-toggle="modal" data-target="#myModal"
+                style="color:white; font-weight:bold; text-align: right;">เข้าสู่ระบบ <span
+                    class="sr-only">(current)</span></a>
+            <a id="userNev" style="display: none; text-align: right;" class="nav-item nav-link" href="profile.html"><img
+                    src="images/sun.png" class="demo-profile-pic"></a>
+        </div>
+    </nav>
+    <!--!nav-->
 
     <!--! modal !-->
 
@@ -184,7 +185,7 @@
     </div>
     <!--! modal !-->
     <!--!sort bar-->
-    <div class="container-sort">
+    <div class="container-sort" style="display: none;">
         <table style="width:100%">
             <tr style="width:100%">
                 <td style="width:20%">
@@ -206,7 +207,7 @@
                     <p>ค้นหาแบบละเอียด</p>
                 </td>
                 <td class="filter-row-center" width="100%">
-                    <hr>
+                    <hr style="border: 1px solid white; ">
                 </td>
                 <td class="filter-row-right">&#128772;</td>
             </tr>
@@ -256,11 +257,11 @@
     <script defer src="/__/firebase/6.4.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
-       <script src="loginFirebase.js"></script>
+    <script src="loginFirebase.js"></script>
 
     <script src="js/allLandsFunctions.js"></script>
     <script src="js/landBlock.js"></script>
-    
+
 
     <!--!/Script !-->
 

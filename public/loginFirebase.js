@@ -1,6 +1,8 @@
 "use strict";
 
 var email = "example@e.com";
+var fullName = document.getElementById("modal-username-regis");
+var phoneNumber = document.getElementById("modal-userphone-regis");
 var globalUser = null;
 var userData;
 var landsData;
@@ -8,7 +10,7 @@ var landsData;
 function Demo() {
   // createLandBlock();
   $(window, document, undefined).ready(function() {
- // checkUserDb();
+    // checkUserDb();
     $(".input").blur(function() {
       var $this = $(this);
       if ($this.val()) $this.addClass("used");
@@ -16,19 +18,10 @@ function Demo() {
     });
   });
 
-  $('#registerBt').click(function() {
-    $('#modal-login').modal('toggle');
-    $('#modal-register').modal('toggle');
+  $("#registerBt").click(function() {
+    $("#modal-login").modal("toggle");
+    $("#modal-register").modal("toggle");
   });
-
-  $("#saveEditProfile").click(function() {
-    if(fullName.checkValidity() &&phoneNumber.checkValidity()){
-      var userData = '{"name": "'+fullName.value+'","phone": "'+phoneNumber.value+'","email":"'+email+'"}'
-      registerDB(userData);
-    }
-   
-
-  })
 
   document.addEventListener(
     "DOMContentLoaded",
@@ -49,11 +42,6 @@ function Demo() {
       this.loginButton = document.getElementById("signin");
       this.registerButton = document.getElementById("confirmsignup");
 
-
-      this.fullName = document.getElementById("modal-username-regis");
-      this.phoneNumber = document.getElementById("modal-userphone-regis");
-
-
       this.loginButton.addEventListener("click", this.signIn.bind(this));
       this.registerButton.addEventListener("click", this.register.bind(this));
       this.loginGoogle.addEventListener(
@@ -69,19 +57,20 @@ function Demo() {
 // Triggered on Firebase auth state change.
 Demo.prototype.onAuthStateChanged = function(user) {
   if (user) {
- 
     globalUser = user;
-    this.profilePic.src = user.photoURL;
+    if (user.photoURL != null) {
+      this.profilePic.src = user.photoURL;
+    }
+
     this.userNev.style.display = "block";
     this.loginNev.style.display = "none";
     email = user.email;
-    readUserData();
+
     $("#modal-login").modal("hide");
     checkUserDb();
   } else {
     this.userNev.style.display = "none";
     this.loginNev.style.display = "block";
-    alert("เกิดข้อผิดพลาดขณะ login โปรดลองใหม่อีกครั้ง");
   }
 };
 
@@ -108,30 +97,37 @@ Demo.prototype.register = function() {
         console.log(errorMessage);
       });
 
-    var userData = '{"name": "'+firstName.value+'","phone": "'+phone.value+'","email":"'+email.value+'"}'
+    var userData =
+      '{"name": "' +
+      firstName.value +
+      '","phone": "' +
+      phone.value +
+      '","email":"' +
+      email.value +
+      '"}';
     registerDB(userData);
   }
 };
 
 Demo.prototype.loginWithGoogle = function() {
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  $('#modalSubscriptionForm').modal('toggle');
 };
 
 // Initiates the sign-in flow using LinkedIn sign in in a popup.
 Demo.prototype.signIn = function() {
   var email = this.emailToLogin;
   var password = this.passwordToLogin;
-
   if (email.checkValidity() && password.checkValidity()) {
-    console.log(email.value, password.value);
-    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-    .catch(function(error) {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email.value, password.value)
+      .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
+        alert("เกิดข้อผิดพลาดขณะ login โปรดลองใหม่อีกครั้ง");
       });
   }
 };
@@ -169,14 +165,16 @@ function checkUserDb() {
     success: function(data, status) {
       // $("#content-api").html(JSON.stringify(data));
       userData = data;
+      sessionStorage.globalUser = JSON.stringify(data);
     },
     error: function(jqXhr, textStatus, errorThrown) {
-      firebase.auth().signOut();
+      $("#modalSubscriptionForm").modal("toggle");
     }
   });
 }
 
-function registerDB(regisData){
+function registerDB(regisData) {
+
   $.ajax({
     type: "POST",
     url: "https://stark-sea-12441.herokuapp.com/register",
@@ -186,14 +184,29 @@ function registerDB(regisData){
     dataType: "json",
     success: function(data) {
       alert("ลงทะเบียนสำเร็จ");
-      $('#modal-register').modal('hide');
-      $('#modalSubscriptionForm').modal('hide');
+      $("#modal-register").modal("hide");
+      $("#modalSubscriptionForm").modal("hide");
     },
     failure: function(errMsg) {
       alert("เกิดข้อผิดพลาดขณะลงทะเบียน ลองใหม่อีกครั้ง");
     }
   });
 }
+
+$("#saveEditProfile").click(function() {
+  if (fullName.checkValidity() && phoneNumber.checkValidity()) {
+    var userData =
+      '{"name": "' +
+      fullName.value +
+      '","phone": "' +
+      phoneNumber.value +
+      '","email":"' +
+      email +
+      '"}';
+
+    registerDB(userData);
+  }
+});
 
 // Load the demo.
 window.demo = new Demo();

@@ -92,6 +92,7 @@ function onPolygonComplete(polygon) {
     countButton++;
   });
   clearBt.addEventListener("click", function() {
+    bounds = [];
     initMap();
   });
 }

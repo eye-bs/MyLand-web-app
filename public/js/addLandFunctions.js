@@ -22,7 +22,7 @@ var locality, lev_2, lev_1;
 var building = false;
 var electric = false;
 var water = false;
-var data;
+var data = null;
 
 var resultJson = document.getElementById("resultJson");
 
@@ -131,10 +131,13 @@ function postToDatabase(imgArr) {
 
 //! for add images
 $(document).ready(function() {
-  data = sessionStorage.landEdit;
+
+  data =  JSON.parse(sessionStorage.landEdit);
+
+  console.log(data);
 
   if (data != null) {
-    var landDetails = JSON.parse(data)
+    var landDetails = data;
     land_name.value = landDetails.land_name;
     area_rai.value = landDetails.area.size;
     area_type.value = landDetails.area.type;
@@ -155,7 +158,6 @@ $(document).ready(function() {
       electricBt.click();
     }
     getLatLng(landDetails);
-
   }
 
   document
@@ -173,31 +175,33 @@ $(document).ready(function() {
 var num = 4;
 
 submitBt.addEventListener("click", function(event) {
-  console.log('arrayfile.length',arrayfile.length)
   if (
     land_name.checkValidity() &&
     area_rai.checkValidity() &&
     wide_face.checkValidity() &&
     address.checkValidity()
   ) {
-   
     if (bounds.length == 0) {
       alert("กรุณาเลือกพื้นที่ของที่ดินในแผนที่แล้วกดปุ่ม 'บันทึกแผนที่'");
     } else {
-      event.preventDefault();
+      if(arrayfile.length != 0){
+  event.preventDefault();
       arrayfile.forEach(function(file) {
         uplodeImageFirebase(file, num);
       });
+      }else{
+        alert("กรุณาเพิ่มรูปภาพ'อย่างน้อย 1 ภาพ");
+      }
+    
     }
   }
 });
-
 
 function readImage() {
   if (window.File && window.FileList && window.FileReader) {
     var files = event.target.files; //FileList object
     var output = $(".preview-images-zone");
-   arrayfile = [];
+    arrayfile = [];
 
     for (let i = 0; i < files.length; i++) {
       var file = files[i];
@@ -231,7 +235,7 @@ function readImage() {
 
       picReader.readAsDataURL(file);
     }
-   
+
     $("#pro-image").val("");
   } else {
     console.log("Browser not support");
@@ -274,6 +278,7 @@ function uplodeImageFirebase(file, num) {
   );
 }
 function covertToJson(arrayurl) {
+  console.log("start covertToJson", arrayurl);
   var results = "";
   var imgArr = "";
   for (var i = 0; i < arrayurl.length; i++) {
@@ -284,6 +289,7 @@ function covertToJson(arrayurl) {
       imgArr += ",";
     }
   }
+
 
   var tt = transfer_terms.value;
   var square_yard_price = square_yard.value || 0;
@@ -338,7 +344,10 @@ function covertToJson(arrayurl) {
     userData._id +
     '"}';
 
+  console.log(results);
+
   if (data != null) {
+
     $.ajax({
       type: "PUT",
       url: " https://stark-sea-12441.herokuapp.com/lands/update/" + data._id,
@@ -346,16 +355,17 @@ function covertToJson(arrayurl) {
       data: JSON.stringify(JSON.parse(results)),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      success: function() {
-        resultJson.innerHTML = results;
-        openLandDetailClick(data._id);
-
+      success: function(data) {
+      
+        sessionStorage.landId = JSON.stringify(data); //will set object to the stringified myObject
+            window.location.href = "detailland.html";
       },
       failure: function(errMsg) {
         alert(errMsg);
       }
     });
   } else {
+    console.log("ajax post", results);
     $.ajax({
       type: "POST",
       url: "https://stark-sea-12441.herokuapp.com/new/land",
@@ -364,8 +374,24 @@ function covertToJson(arrayurl) {
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function(data) {
-        alert("บันทึกเรียบร้อย");
-        window.location.href = "profile.html";
+        $.ajax({
+          type: "PUT",
+          url: "https://stark-sea-12441.herokuapp.com/users/" + email,
+          // The key needs to match your method's input parameter (case-sensitive).
+          data: JSON.stringify(
+            JSON.parse('{"requests_id" : "' + data._id + '"}')
+          ),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          success: function() {
+            console.log("บันทึกเรียบร้อย");
+            sessionStorage.landId = JSON.stringify(data); //will set object to the stringified myObject
+            window.location.href = "detailland.html";
+          },
+          failure: function(errMsg) {
+            alert(errMsg);
+          }
+        });
       },
       failure: function(errMsg) {
         alert(errMsg);

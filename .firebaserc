@@ -1,5 +1,20 @@
 {
   "projects": {
     "default": "myland-xml"
+  },
+  "targets": {
+    "myland-xml": {
+      "hosting": {
+        "old": [
+          "myland-xml"
+        ],
+        "new": [
+          "myland-korat-6bd55"
+        ],
+        "final1":[
+          "myland-korat-95ac5"
+          ]
+      }
+    }
   }
 }

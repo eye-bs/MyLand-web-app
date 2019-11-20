@@ -4,12 +4,11 @@ var containerDetail = document.querySelector(".container-detail");
 var showMapBt = document.getElementById("showMapBt");
 var editLandDetail = document.getElementById("editLandDetail");
 var fevBt = document.getElementById("fevBt");
+var deleteLand = document.getElementById("deleteLand");
 var toggleMapWidth = (window.innerHeight * 60) / 100;
 var slideIndex = 1;
 var landDataFormCard = "";
 var landData;
-
-
 
 $(window, document).ready(function() {
   landDataFormCard = JSON.parse(sessionStorage.landId);
@@ -31,7 +30,7 @@ apiCall.addEventListener("click", function() {
     url: "https://stark-sea-12441.herokuapp.com/users/" + email,
     // The key needs to match your method's input parameter (case-sensitive).
     data: JSON.stringify(
-      JSON.parse('{"likes_id" : "' + landDataFormCard + '"}')
+      JSON.parse('{"likes_id" : "' + landDataFormCard._id + '"}')
     ),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
@@ -62,7 +61,6 @@ function getLandByID(id) {
 
 // สร้างหน้า detail
 function createElementDetail(landId) {
-
   if (landId == null) {
     window.location.href = "index.html";
   }
@@ -100,9 +98,9 @@ function createElementDetail(landId) {
   approved.innerHTML = data.approved;
 
   // console.log(userData);
-  var delayInMilliseconds = 1000; //1 second
 
-  setTimeout(function() {
+    userData = JSON.parse(sessionStorage.globalUser);
+    console.log(userData.email);
     if (data.owner == userData._id) {
       var detailForAdmin = document.getElementById("detailForAdmin");
       var apiLandDtail = document.getElementById("apiLandDtail");
@@ -113,6 +111,7 @@ function createElementDetail(landId) {
     } else {
       var likes_id = userData.likes_id;
       for (var i = 0; i < likes_id.length; i++) {
+        console.log(likes_id[i] , '&&' , data._id);
         if (data._id == likes_id[i]) {
           apiCall.style.display = "none";
           fevBt.style.display = "block";
@@ -120,7 +119,7 @@ function createElementDetail(landId) {
         }
       }
     }
-  }, delayInMilliseconds);
+ 
 
   //!
 }
@@ -204,3 +203,37 @@ showMapBt.addEventListener("click", function() {
     toggleMapWidth = (window.innerHeight * 60) / 100;
   } else toggleMapWidth = 0;
 });
+
+deleteLand.addEventListener('click', function(){
+
+  $.ajax({
+    type: "DELETE",
+    url: " https://stark-sea-12441.herokuapp.com/lands/" + data._id,
+    // The key needs to match your method's input parameter (case-sensitive).
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function() {
+      //will set object to the stringified myObject
+      alert("ลบสำเร็จ");
+          window.location.href = "profile.html";
+    },
+    failure: function(errMsg) {
+      alert(errMsg);
+    }
+  });
+
+})
+
+
+
+function queryUser(email) {
+  var urlQ = "https://stark-sea-12441.herokuapp.com/users/" + email;
+  return Promise.resolve(
+    $.ajax({
+      url: urlQ,
+      type: "GET",
+      dataType: "json",
+      contentType: "application/json"
+    })
+  );
+}
